@@ -16,6 +16,8 @@
                          "haml-mode" dotfiles-dir))
 (add-to-list 'load-path (expand-file-name
                          "sass-mode" dotfiles-dir))
+(add-to-list 'load-path (expand-file-name
+                         "js2-mode" dotfiles-dir))
 (require 'functions)
 
 ;; ELPA
@@ -119,13 +121,17 @@
 (add-hook 'rhtml-mode-hook
      	  (lambda () (rinari-launch)))
 
-; - HAML & SASS MODES
+;; HAML & SASS MODES
 (require 'haml-mode)
 (require 'sass-mode)
+
+;; JS MODE
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
 
 ;; OTHER MODES
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
