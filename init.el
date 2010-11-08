@@ -55,6 +55,8 @@
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "White" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 77 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
 
 
+
+
 ;; COLOR-THEME
 (require 'color-theme-arjen)
 (color-theme-arjen)
@@ -77,7 +79,7 @@
 (setq ido-enable-prefix nil
         ido-enable-flex-matching t
         ido-create-new-buffer 'always
-        ido-use-filename-at-point t
+        ido-use-filename-at-point nil
         ido-max-prospects 10)
 
 
@@ -98,12 +100,21 @@
 ; anything
 (global-set-key (kbd "M-X") 'anything)
 
+; move to windows...
+(global-set-key [M-left] 'windmove-left)          ; move to left windnow
+(global-set-key [M-right] 'windmove-right)        ; move to right window
+(global-set-key [M-up] 'windmove-up)              ; move to upper window
+(global-set-key [M-down] 'windmove-down)          ; move to downer window
 
 ;; RUBY MODE
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+
+(setq-default ruby-insert-encoding-magic-comment nil)
+(setq-default ruby-use-encoding-map nil)
+
 (eval-after-load 'ruby-mode
   '(progn
      (add-hook 'ruby-mode-hook 'inf-ruby-keys)
