@@ -6,9 +6,6 @@
   (set-frame-parameter f 'fullscreen
                        (if (frame-parameter f 'fullscreen) nil 'fullboth)))
 
-
-
-
 (provide 'functions)
 
 

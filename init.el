@@ -18,6 +18,8 @@
                          "sass-mode" dotfiles-dir))
 (add-to-list 'load-path (expand-file-name
                          "js2-mode" dotfiles-dir))
+(add-to-list 'load-path (expand-file-name
+                         "scss-mode" dotfiles-dir))
 (require 'functions)
 
 ;; ELPA
@@ -135,6 +137,10 @@
 ;; HAML & SASS MODES
 (require 'haml-mode)
 (require 'sass-mode)
+(require 'scss-mode)
+(setq-default scss-compile-at-save nil)
+
+
 
 ;; JS MODE
 (autoload 'js2-mode "js2-mode" nil t)
